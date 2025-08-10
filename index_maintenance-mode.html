@@ -33,7 +33,8 @@
             align-items: center;
             justify-content: center;
             color: white;
-            overflow: hidden;
+            overflow-x: hidden;
+            padding: 1rem 0;
         }
 
         .maintenance-container {
@@ -302,9 +303,15 @@
 
         /* Mobile Medium */
         @media (max-width: 480px) {
+            body {
+                align-items: flex-start;
+                padding: 2rem 0;
+            }
+
             .maintenance-container {
                 padding: 1rem;
                 max-width: 95%;
+                margin: auto;
             }
 
             .logo {
@@ -367,6 +374,10 @@
 
         /* Mobile Small */
         @media (max-width: 320px) {
+            body {
+                padding: 1.5rem 0;
+            }
+
             .maintenance-container {
                 padding: 0.8rem;
             }
