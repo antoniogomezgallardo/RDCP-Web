@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocío Díez Cabeza - Sitio en Mantenimiento</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #006769;
+            --secondary-color: #044542;
+            --accent-color: #96E1D8;
+            --text-primary: #044542;
+            --text-secondary: #006769;
+            --background-light: #f0fffe;
+            --background-white: #ffffff;
+            --gradient: linear-gradient(135deg, #96E1D8 0%, #006769 100%);
+            --shadow: 0 10px 40px rgba(0, 103, 105, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--gradient);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .maintenance-container {
+            text-align: center;
+            max-width: 600px;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo-section {
+            margin-bottom: 2rem;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .logo img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        .logo i {
+            font-size: 3rem;
+            color: white;
+            opacity: 0.8;
+        }
+
+        .therapist-name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .therapist-title {
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 3rem;
+        }
+
+        .maintenance-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+            animation: pulse 2s infinite;
+        }
+
+        .maintenance-title {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .maintenance-message {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-item i {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            width: 20px;
+            text-align: center;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        .back-soon {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            font-style: italic;
+        }
+
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .floating-element {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            font-size: 2rem;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            top: 60%;
+            right: 15%;
+            font-size: 1.5rem;
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            bottom: 30%;
+            left: 20%;
+            font-size: 1.8rem;
+            animation-delay: 4s;
+        }
+
+        .floating-element:nth-child(4) {
+            top: 40%;
+            right: 30%;
+            font-size: 1.3rem;
+            animation-delay: 1s;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Tablet */
+        @media (max-width: 1024px) {
+            .maintenance-container {
+                max-width: 80%;
+            }
+
+            .therapist-name {
+                font-size: 2.2rem;
+            }
+
+            .maintenance-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Mobile Large */
+        @media (max-width: 768px) {
+            .maintenance-container {
+                padding: 1.5rem;
+                max-width: 90%;
+            }
+
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .logo img, .logo i {
+                width: 60px;
+                height: 60px;
+                font-size: 2.5rem;
+            }
+
+            .therapist-name {
+                font-size: 2rem;
+                margin-bottom: 0.3rem;
+            }
+
+            .therapist-title {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .maintenance-title {
+                font-size: 1.8rem;
+            }
+
+            .maintenance-icon {
+                font-size: 3rem;
+                margin-bottom: 1rem;
+            }
+
+            .maintenance-message {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .contact-info {
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .contact-title {
+                font-size: 1.2rem;
+            }
+
+            .contact-item {
+                font-size: 0.95rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .floating-element {
+                display: none;
+            }
+        }
+
+        /* Mobile Medium */
+        @media (max-width: 480px) {
+            .maintenance-container {
+                padding: 1rem;
+                max-width: 95%;
+            }
+
+            .logo {
+                width: 80px;
+                height: 80px;
+                margin-bottom: 0.8rem;
+            }
+
+            .logo img, .logo i {
+                width: 50px;
+                height: 50px;
+                font-size: 2rem;
+            }
+
+            .therapist-name {
+                font-size: 1.8rem;
+                line-height: 1.2;
+            }
+
+            .therapist-title {
+                font-size: 0.9rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .maintenance-title {
+                font-size: 1.5rem;
+                line-height: 1.3;
+            }
+
+            .maintenance-icon {
+                font-size: 2.5rem;
+            }
+
+            .maintenance-message {
+                font-size: 0.95rem;
+                line-height: 1.5;
+            }
+
+            .contact-info {
+                padding: 1.2rem;
+            }
+
+            .contact-item {
+                flex-direction: column;
+                gap: 0.3rem;
+                text-align: center;
+                font-size: 0.9rem;
+                margin-bottom: 1rem;
+            }
+
+            .contact-item i {
+                font-size: 1.1rem;
+            }
+
+            .back-soon {
+                font-size: 0.8rem;
+                line-height: 1.4;
+            }
+        }
+
+        /* Mobile Small */
+        @media (max-width: 320px) {
+            .maintenance-container {
+                padding: 0.8rem;
+            }
+
+            .therapist-name {
+                font-size: 1.6rem;
+            }
+
+            .maintenance-title {
+                font-size: 1.3rem;
+            }
+
+            .maintenance-message {
+                font-size: 0.9rem;
+            }
+
+            .contact-info {
+                padding: 1rem;
+            }
+
+            .contact-item {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-element"><i class="fas fa-heart"></i></div>
+        <div class="floating-element"><i class="fas fa-brain"></i></div>
+        <div class="floating-element"><i class="fas fa-leaf"></i></div>
+        <div class="floating-element"><i class="fas fa-hands-helping"></i></div>
+    </div>
+
+    <div class="maintenance-container">
+        <div class="logo-section">
+            <div class="logo">
+                <!-- Si tienes logo, descomenta la línea de abajo y comenta el icono -->
+                <!-- <img src="logo.png" alt="Rocío Díez Cabeza Logo"> -->
+                <i class="fas fa-user-md"></i>
+            </div>
+            <h1 class="therapist-name">Rocío Díez Cabeza</h1>
+            <p class="therapist-title">Psicóloga Sanitaria Colegiada</p>
+        </div>
+
+        <div class="maintenance-icon">
+            <i class="fas fa-tools"></i>
+        </div>
+
+        <h2 class="maintenance-title">Sitio Web en Mantenimiento</h2>
+        
+        <p class="maintenance-message">
+            Estamos mejorando nuestro sitio web para ofrecerte una mejor experiencia. 
+            Durante este tiempo, puedes contactarme directamente para programar tu sesión 
+            de terapia online o resolver cualquier consulta.
+        </p>
+
+        <div class="contact-info">
+            <h3 class="contact-title">Contacto Directo</h3>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>rociodiezcabeza@hotmail.es</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>+34 660 768 788</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-clock"></i>
+                <span>Lun - Vie: 9:00 - 21:00 | Sáb: 10:00 - 14:00</span>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-instagram"></i>
+                <a href="https://instagram.com/rociodiezcabezapsicologia" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: none;">
+                    @rociodiezcabezapsicologia
+                </a>
+            </div>
+        </div>
+
+        <p class="back-soon">
+            ¡Volvemos pronto con nuevas funcionalidades para tu bienestar!
+        </p>
+    </div>
+</body>
+</html>
