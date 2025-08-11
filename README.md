@@ -1,220 +1,199 @@
-# PsicoWeb - Psychology Website with Email Functionality
+# PsicoWeb - Sitio Web de Rocío Díez Cabeza
 
-A modern, professional psychology website for Dr. Sarah Martinez with a fully functional contact form that sends emails.
+Un sitio web moderno y profesional para servicios de psicología con formulario de contacto funcional usando PHP para hosting estático.
 
-## Features
+## Características
 
-✨ **Modern Design**
-- Responsive, mobile-first design
-- Professional gradient color scheme
-- Smooth animations and transitions
-- Clean, accessible interface
+✨ **Diseño Moderno**
+- Diseño responsive, mobile-first
+- Esquema de colores profesional con gradientes
+- Animaciones y transiciones suaves
+- Interfaz limpia y accesible
 
-📧 **Email Functionality**
-- Contact form sends emails to therapist
-- Auto-reply confirmation to clients
-- Beautiful HTML email templates
-- Rate limiting for security
-- Form validation and error handling
+📧 **Funcionalidad de Email**
+- Formulario de contacto que envía emails
+- Procesamiento con PHP para hosting estático
+- Validación de formularios y manejo de errores
+- Log de contactos para respaldo
+- Mensajes de confirmación personalizados
 
-🛡️ **Security Features**
-- CORS protection
-- Helmet security headers
-- Rate limiting (5 submissions per 15 minutes)
-- Input validation and sanitization
-- Environment variable protection
+🛡️ **Características de Seguridad**
+- Validación y sanitización de datos de entrada
+- Protección contra inyección de código
+- Verificación de campos requeridos
+- Filtros de email válidos
 
-## Quick Start
+## Instalación Rápida
 
-### 1. Install Dependencies
+### 1. Configurar Email
 
-```bash
-npm install
+Edita el archivo `contact.php` en la línea 6:
+
+```php
+$to = "tu-email@ejemplo.com"; // Cambiar por tu email real
 ```
 
-### 2. Configure Email Settings
+### 2. Subir Archivos
 
-Copy the example environment file:
-```bash
-copy .env.example .env
-```
+Sube todos los archivos a tu hosting:
+- `index.html` - Página principal
+- `contact.php` - Procesador del formulario
+- `script.js` - JavaScript del frontend  
+- `styles.css` - Estilos CSS
+- `logo.png` - Logo
+- `contact-success.html` - Página de confirmación (opcional)
 
-Edit `.env` with your email settings:
+### 3. Configurar Hosting
 
-```env
-# Email Configuration
-EMAIL_HOST=smtp.gmail.com
-EMAIL_PORT=587
-EMAIL_USER=your-email@gmail.com
-EMAIL_PASS=your-app-password
-EMAIL_FROM=your-email@gmail.com
-EMAIL_TO=therapist@example.com
+Asegúrate de que tu hosting tenga:
+- Soporte para PHP (versión 7.0 o superior)
+- Función `mail()` habilitada
+- Permisos de escritura para el archivo de log
 
-# Server Configuration
-PORT=3000
-NODE_ENV=production
-```
+### 4. Probar el Formulario
 
-### 3. Gmail Setup (Recommended)
+Visita tu sitio web y prueba el formulario de contacto para verificar que los emails se envían correctamente.
 
-For Gmail accounts:
-1. Enable 2-factor authentication
-2. Go to Google Account settings
-3. Generate an "App Password" for this application
-4. Use the app password in `EMAIL_PASS` (not your regular password)
+## Proveedores de Email
 
-### 4. Start the Server
+Este sitio utiliza la función nativa `mail()` de PHP, que funciona automáticamente con la mayoría de hostings como:
 
-```bash
-# Production
-npm start
+- **Hostinger** ✅ (Recomendado)
+- **SiteGround** ✅
+- **Bluehost** ✅  
+- **GoDaddy** ✅
+- **1&1 IONOS** ✅
 
-# Development (with auto-restart)
-npm run dev
-```
+No requiere configuración SMTP externa - el hosting se encarga del envío de emails.
 
-The website will be available at `http://localhost:3000`
-
-## Email Providers
-
-### Gmail
-```env
-EMAIL_HOST=smtp.gmail.com
-EMAIL_PORT=587
-```
-
-### Outlook/Hotmail
-```env
-EMAIL_HOST=smtp-mail.outlook.com
-EMAIL_PORT=587
-```
-
-### Yahoo
-```env
-EMAIL_HOST=smtp.mail.yahoo.com
-EMAIL_PORT=587
-```
-
-### Custom SMTP
-Use your hosting provider's SMTP settings.
-
-## File Structure
+## Estructura de Archivos
 
 ```
 PsicoWeb/
-├── index.html          # Main website
-├── styles.css          # All CSS styles
-├── script.js           # Frontend JavaScript
-├── server.js           # Node.js backend server
-├── package.json        # Dependencies and scripts
-├── .env.example        # Environment variables template
-└── README.md           # This file
+├── index.html              # Sitio web principal
+├── contact.php             # Procesador del formulario PHP
+├── contact-success.html    # Página de confirmación
+├── styles.css              # Todos los estilos CSS
+├── script.js               # JavaScript del frontend
+├── logo.png                # Logo de Rocío
+├── index_maintenance-mode.html # Página de mantenimiento
+├── contact_log.txt         # Log de contactos (se crea automáticamente)
+├── CONTEXT.md              # Contexto del proyecto
+└── README.md               # Este archivo
 ```
 
-## API Endpoints
+## Funcionalidad del Formulario
 
-### POST `/api/contact`
-Submit contact form data
-- Rate limited to 5 requests per 15 minutes per IP
-- Validates required fields
-- Sends email to therapist and auto-reply to client
+### `contact.php`
+Procesa los datos del formulario de contacto:
+- Valida campos requeridos (nombre, email, servicio, mensaje)
+- Sanitiza datos de entrada para seguridad
+- Envía email usando la función `mail()` de PHP
+- Guarda log de contactos en `contact_log.txt`
+- Responde en formato JSON para la interfaz
 
-### GET `/api/health`
-Health check endpoint
-- Returns server status and configuration info
+## Plantilla de Email
 
-## Email Templates
+El sistema envía un email por cada envío de formulario:
 
-The system sends two emails for each form submission:
+**Al Psicólogo**: Notificación profesional con todos los datos del formulario:
+- Nombre y datos de contacto del cliente
+- Servicio solicitado (Individual, Pareja, Consulta, etc.)
+- Mensaje completo
+- Fecha y hora del envío
+- Respaldo en archivo de log
 
-1. **To Therapist**: Professional notification with all form data
-2. **To Client**: Friendly auto-reply with next steps and emergency resources
+El email incluye formato HTML limpio y toda la información necesaria para contactar al cliente.
 
-Both emails use responsive HTML templates with the website's branding.
+## Consideraciones de Seguridad
 
-## Security Considerations
+- Validación de datos de entrada con `htmlspecialchars()` y `strip_tags()`
+- Filtrado de emails con `filter_var()`
+- Sanitización de todos los campos del formulario
+- Verificación de checkbox de privacidad obligatorio
+- Log de actividad para monitoreo
+- Considera agregar CAPTCHA para protección adicional
 
-- Never commit `.env` file to version control
-- Use app passwords, not regular passwords
-- Configure firewall rules for production
-- Monitor email usage to prevent abuse
-- Consider adding CAPTCHA for additional protection
+## Despliegue
 
-## Deployment
+### Hosting Recomendado
+- **Hostinger** (Recomendado)
+- **SiteGround**
+- **Bluehost**
+- Cualquier hosting con soporte PHP
 
-### Local Development
+### Pasos para Subir
+1. Sube todos los archivos via FTP o panel de control
+2. Configura el email en `contact.php`
+3. Asegúrate de que PHP esté habilitado
+4. Verifica permisos de escritura para logs
+5. Prueba el formulario de contacto
+
+### Desarrollo Local
+Para pruebas locales necesitas un servidor PHP:
 ```bash
-npm run dev
+# Con PHP instalado
+php -S localhost:8000
+
+# Con XAMPP/WAMP
+# Coloca archivos en htdocs y visita localhost
 ```
 
-### Production
-1. Set `NODE_ENV=production` in `.env`
-2. Configure proper SMTP settings
-3. Use a process manager like PM2:
-```bash
-npm install -g pm2
-pm2 start server.js --name "psicoweb"
-```
+## Resolución de Problemas
 
-### Hosting Platforms
-- **Heroku**: Add environment variables in dashboard
-- **DigitalOcean**: Use App Platform or Droplet
-- **Netlify**: Use Netlify Functions for serverless
-- **Vercel**: Deploy with Vercel CLI
+### Emails No se Envían
+1. Verifica que la función `mail()` esté habilitada en tu hosting
+2. Revisa que el email en `contact.php` sea correcto
+3. Consulta logs de error de PHP en tu hosting
+4. Contacta soporte técnico de tu proveedor si persiste
 
-## Troubleshooting
+### Errores en el Formulario
+1. Revisa la consola del navegador para errores JavaScript
+2. Verifica que `contact.php` esté en la raíz del sitio
+3. Asegúrate de que PHP esté funcionando (prueba con `<?php phpinfo(); ?>`)
+4. Revisa permisos de archivos (644 para archivos, 755 para carpetas)
 
-### Email Not Sending
-1. Check `.env` file configuration
-2. Verify SMTP credentials
-3. Check server logs for specific errors
-4. Test with Gmail app password first
+### Problemas de Conectividad
+- Asegúrate de que el formulario y PHP estén en el mismo dominio
+- Verifica que no haya errores de sintaxis en el código
+- Revisa que todos los archivos se hayan subido correctamente
 
-### Form Submission Errors
-1. Check browser console for JavaScript errors
-2. Verify server is running on correct port
-3. Check network connectivity
-4. Review rate limiting (wait 15 minutes if exceeded)
+## Personalización
 
-### 403/CORS Errors
-- Ensure the frontend is served from the same domain as the API
-- Check CORS configuration if serving from different domains
+### Información de la Psicóloga
+Edita el contenido en `index.html`:
+- Nombre, credenciales y biografía de Rocío
+- Servicios ofrecidos
+- Información de contacto y horarios
+- Precios
 
-## Customization
+### Plantilla de Email
+Modifica la plantilla en `contact.php`:
+- Asunto del email (`$subject`)
+- Contenido del mensaje (`$email_message`)
+- Email de destino (`$to`)
 
-### Changing Therapist Information
-Edit the content in `index.html`:
-- Therapist name, credentials, and bio
-- Services offered
-- Contact information and hours
-- Pricing
+### Estilos
+Actualiza `styles.css`:
+- Esquema de colores (variables CSS al inicio)
+- Diseño y espaciado
+- Puntos de quiebre responsive
+- Animaciones
 
-### Email Templates
-Modify the HTML templates in `server.js`:
-- `therapistEmailHtml` - Email to therapist
-- `clientEmailHtml` - Auto-reply to client
+### Funcionalidad
+Extiende `script.js`:
+- Reglas de validación del formulario
+- Animaciones adicionales
+- Nuevas características interactivas
 
-### Styling
-Update `styles.css`:
-- Color scheme (CSS variables at top)
-- Layout and spacing
-- Responsive breakpoints
-- Animations
+## Soporte
 
-### Functionality
-Extend `script.js`:
-- Form validation rules
-- Additional animations
-- New interactive features
+Para problemas y preguntas:
+1. Revisa este README primero
+2. Consulta logs de error de PHP en tu hosting
+3. Verifica que la función mail() esté habilitada
+4. Confirma que todos los archivos estén subidos correctamente
 
-## Support
+## Licencia
 
-For issues and questions:
-1. Check this README first
-2. Review server logs for error details
-3. Test email configuration with a simple tool
-4. Verify all environment variables are set correctly
-
-## License
-
-MIT License - feel free to customize for your needs.
+MIT License - libre para personalizar según tus necesidades.
