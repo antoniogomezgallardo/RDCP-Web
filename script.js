@@ -44,33 +44,33 @@ contactForm.addEventListener('submit', async function(e) {
     
     // Basic form validation
     if (!formObject.name || !formObject.email || !formObject.service || !formObject.message) {
-        showNotification('Please fill in all required fields.', 'error');
+        showNotification('Por favor, completa todos los campos requeridos.', 'error');
         return;
     }
     
     if (!formObject.privacy) {
-        showNotification('Please accept the privacy policy to continue.', 'error');
+        showNotification('Por favor, acepta la política de privacidad para continuar.', 'error');
         return;
     }
     
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formObject.email)) {
-        showNotification('Please enter a valid email address.', 'error');
+        showNotification('Por favor, ingresa una dirección de email válida.', 'error');
         return;
     }
     
     // Show loading state
     const submitButton = this.querySelector('.submit-btn');
     const originalButtonText = submitButton.textContent;
-    submitButton.textContent = 'Sending...';
+    submitButton.textContent = 'Enviando...';
     submitButton.disabled = true;
     submitButton.style.opacity = '0.7';
     submitButton.style.cursor = 'not-allowed';
     
     try {
-        // Send form data to server
-        const response = await fetch('/api/contact', {
+        // Send form data to PHP script
+        const response = await fetch('contact.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -84,19 +84,19 @@ contactForm.addEventListener('submit', async function(e) {
             showNotification(result.message, 'success');
             this.reset(); // Reset form on success
         } else {
-            showNotification(result.error || 'There was an error sending your message. Please try again.', 'error');
+            showNotification(result.error || 'Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo.', 'error');
         }
         
     } catch (error) {
         console.error('Form submission error:', error);
         
         // Handle different types of network errors
-        let errorMessage = 'There was an error sending your message. Please try again later.';
+        let errorMessage = 'Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo más tarde.';
         
         if (!navigator.onLine) {
-            errorMessage = 'No internet connection. Please check your connection and try again.';
+            errorMessage = 'Sin conexión a internet. Por favor, verifica tu conexión e inténtalo de nuevo.';
         } else if (error.name === 'TypeError') {
-            errorMessage = 'Unable to connect to the server. Please try again later.';
+            errorMessage = 'No se pudo conectar con el servidor. Por favor, inténtalo de nuevo más tarde.';
         }
         
         showNotification(errorMessage, 'error');
