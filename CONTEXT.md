@@ -73,7 +73,7 @@ Crear una presencia profesional online para ofrecer servicios de terapia psicol�
 - Permisos de escritura para logs
 
 ### Archivos de Configuración
-- **Email**: Configurar destinatario en `contact.php` línea 8 (`$to = "antoniogomezgallardo@gmail.com"`)
+- **Email**: Configurar destinatario en `contact.php` línea 8 (`$to = "rocio@rociodiezcabezapsicologia.com"`)
 - **Logs**: Se crean automáticamente en `contact_log.txt`
 - **Sin archivos .env**: La configuración está directamente en el código PHP
 
@@ -100,12 +100,16 @@ Crear una presencia profesional online para ofrecer servicios de terapia psicol�
 
 ### Tarifas
 - Individual: 60€/sesión
-- Pareja: 80€/sesión
-- Se acepta seguro médico
 
 ### Horarios
 - Lunes - Viernes: 9:00 - 19:00
 - Sábado: 10:00 - 16:00
+
+### Información de Contacto
+- **Teléfono**: +34 660 768 788
+- **Email**: rocio@rociodiezcabezapsicologia.com
+- **Instagram**: https://instagram.com/rociodiezcabezapsicologia
+- **LinkedIn**: https://es.linkedin.com/in/rociodiezcabeza
 
 ## Recursos de Emergencia
 - Teléfono de Crisis: 024

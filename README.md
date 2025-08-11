@@ -23,14 +23,20 @@ Un sitio web moderno y profesional para servicios de psicología con formulario 
 - Verificación de campos requeridos
 - Filtros de email válidos
 
+🎨 **Características de Diseño**
+- Favicon personalizado con el logo de Rocío
+- Información de contacto completa en footer
+- Links a redes sociales (Instagram, LinkedIn)
+- Diseño profesional y accesible
+
 ## Instalación Rápida
 
 ### 1. Configurar Email
 
-Edita el archivo `contact.php` en la línea 6:
+Edita el archivo `contact.php` en la línea 8:
 
 ```php
-$to = "tu-email@ejemplo.com"; // Cambiar por tu email real
+$to = "rocio@rociodiezcabezapsicologia.com"; // Email configurado
 ```
 
 ### 2. Subir Archivos
