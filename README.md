@@ -78,6 +78,7 @@ Sube todos los archivos a tu hosting:
 - `sitemap.xml` - Mapa del sitio para SEO
 - `robots.txt` - Instrucciones para crawlers
 - `contact-success.html` - Página de confirmación (opcional)
+- `.htaccess` - Control de caché del servidor (para Apache/Hostinger)
 
 ### 3. Configurar Hosting
 
@@ -113,6 +114,7 @@ PsicoWeb/
 ├── script.js               # JavaScript del frontend
 ├── logo.png                # Logo de Rocío
 ├── favicon.ico             # Favicon para navegadores
+├── .htaccess               # Control de caché del servidor
 ├── img/                    # Fotografías profesionales
 │   ├── rocio_header.png    # Imagen principal para fondos
 │   └── rocio_portrait.png  # Foto de perfil de Rocío
@@ -248,15 +250,26 @@ php -S localhost:8000
 
 ## Cache Management y Hosting
 
-### Sistema de Cache Busting
-El sitio incluye un sistema de versionado de archivos estáticos para evitar problemas de caché:
-- CSS: `styles.css?v=1.2`
-- JavaScript: `script.js?v=1.2`
+### Sistema de Cache Busting Agresivo
+El sitio incluye múltiples capas de control de caché para forzar actualizaciones:
+
+#### 1. Versionado de Archivos
+- CSS: `styles.css?v=2.0`
+- JavaScript: `script.js?v=2.0`
+
+#### 2. Headers de Cache Control (.htaccess)
+- CSS/JS: `must-revalidate` con cache de 1 día
+- HTML: Cache de 1 hora con revalidación
+- Imágenes: Cache de 1 mes (estables)
+
+#### 3. Forzar Recarga Total
+Para cambios críticos, el `.htaccess` incluye headers `no-cache` que fuerzan descarga completa.
 
 **Para actualizar versiones:**
-1. Cambia el número de versión en `index.html`
-2. Los navegadores cargarán automáticamente las nuevas versiones
-3. Útil después de cambios importantes en CSS o JS
+1. Incrementa versión en `index.html` (v=2.0 → v=2.1)
+2. Sube archivos a Hostinger
+3. Los usuarios cargarán automáticamente las nuevas versiones
+4. No es necesario que los usuarios limpien caché manualmente
 
 ### Compatibilidad con Hosting
 

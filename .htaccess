@@ -1,0 +1,33 @@
+# Forzar recarga de CSS y JS en navegadores
+<FilesMatch "\.(css|js)$">
+    ExpiresActive On
+    ExpiresDefault "access plus 1 day"
+    Header set Cache-Control "public, max-age=86400, must-revalidate"
+</FilesMatch>
+
+# Para HTML, forzar validación más frecuente
+<FilesMatch "\.(html|htm)$">
+    ExpiresActive On
+    ExpiresDefault "access plus 1 hour"
+    Header set Cache-Control "public, max-age=3600, must-revalidate"
+</FilesMatch>
+
+# Forzar recarga inmediata para archivos críticos durante desarrollo
+<Files "styles.css">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+</Files>
+
+<Files "script.js">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"  
+    Header set Expires "0"
+</Files>
+
+# Permitir cache para imágenes (no cambian frecuentemente)
+<FilesMatch "\.(jpg|jpeg|png|gif|ico|svg)$">
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+    Header set Cache-Control "public, max-age=2592000"
+</FilesMatch>

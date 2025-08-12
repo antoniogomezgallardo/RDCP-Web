@@ -105,7 +105,10 @@ Crear una presencia profesional online para ofrecer servicios de terapia psicol�
 - **Estructura semántica**: Headings organizados para SEO
 
 ### Mejoras Técnicas de Hosting
-- **Cache Busting**: Sistema de versionado (?v=1.2) para CSS y JS
+- **Cache Busting Agresivo**: Sistema multicapa para forzar actualizaciones
+  - Versionado de archivos: styles.css?v=2.0, script.js?v=2.0
+  - Headers .htaccess con must-revalidate y no-cache para archivos críticos
+  - Control granular de caché por tipo de archivo
 - **CSS Alta Especificidad**: Selectores con !important para compatibilidad universal
 - **Smooth Scrolling**: Implementado en CSS y JavaScript como respaldo
 - **Navegación Optimizada**: Logo clickeable con scroll al inicio de página
@@ -172,7 +175,8 @@ Crear una presencia profesional online para ofrecer servicios de terapia psicol�
 - `contact.php`: Procesamiento del formulario
 - `script.js`: Lógica del frontend, validaciones y correcciones móviles dinámicas
 - `styles.css`: Todos los estilos visuales con breakpoints móviles avanzados
-- `index.html`: Contenido principal
+- `index.html`: Contenido principal con versionado v=2.0 para cache busting
+- `.htaccess`: Control de caché del servidor con headers agresivos
 - `img/rocio_header.png`: Imagen principal para fondos de hero y sessions
 - `img/rocio_portrait.png`: Foto de perfil para sección "Sobre Mí"
 - `sitemap.xml`: Mapa del sitio para SEO
@@ -197,10 +201,11 @@ Crear una presencia profesional online para ofrecer servicios de terapia psicol�
 - **Compatibilidad general**: Alta gracias a mejoras técnicas implementadas
 
 #### Archivos Críticos para Funcionalidad
-- `index.html` (con cache busting)
-- `styles.css` (con alta especificidad)
-- `script.js` (con manejo mejorado de scroll)
+- `index.html` (con cache busting v=2.0)
+- `styles.css` (con alta especificidad y mobile fixes)
+- `script.js` (con detección dinámica de navbar y mobile fixes)
 - `contact.php` (mensaje actualizado)
+- `.htaccess` (control de caché agresivo para evitar problemas de caché en usuarios)
 
 ## Historial de Versiones y Mejoras
 
@@ -218,6 +223,12 @@ Crear una presencia profesional online para ofrecer servicios de terapia psicol�
   - Detección automática de navbar height y corrección de padding
   - Soporte para dispositivos Android modernos con safe-area-inset
   - Sistema de debug para diagnóstico en dispositivos problemáticos
+
+- **Sistema de Cache Busting Agresivo**:
+  - Actualización a v=2.0 para forzar recarga en todos los usuarios
+  - Archivo .htaccess con headers no-cache para archivos críticos
+  - Control granular de caché por tipo de archivo
+  - Solución definitiva para problemas de caché en navegadores
 
 - **Mejoras UX/UI**:
   - Enlaces en sessions estilizados con color principal y negrita
