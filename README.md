@@ -1,4 +1,4 @@
-# PsicoWeb - Sitio Web de Rocío Díez Cabeza
+# RDCP - Sitio Web de Rocío Díez Cabeza
 
 Un sitio web moderno y profesional para servicios de psicología con formulario de contacto funcional usando PHP para hosting estático.
 
@@ -189,6 +189,41 @@ php -S localhost:8000
 # Coloca archivos en htdocs y visita localhost
 ```
 
+## Cache Management y Hosting
+
+### Sistema de Cache Busting
+El sitio incluye un sistema de versionado de archivos estáticos para evitar problemas de caché:
+- CSS: `styles.css?v=1.2`
+- JavaScript: `script.js?v=1.2`
+
+**Para actualizar versiones:**
+1. Cambia el número de versión en `index.html`
+2. Los navegadores cargarán automáticamente las nuevas versiones
+3. Útil después de cambios importantes en CSS o JS
+
+### Compatibilidad con Hosting
+
+#### CSS con Alta Especificidad
+El sitio usa selectores específicos para funcionar con cualquier hosting:
+```css
+.nav-menu .nav-item .nav-cta-button {
+    background-color: #006769 !important;
+    /* Otros estilos con !important */
+}
+```
+
+#### Funcionalidades Garantizadas
+- **Logo clickeable**: Scroll suave al inicio de página
+- **Botón CTA**: Estilos forzados con `!important`
+- **Smooth scrolling**: CSS y JavaScript como respaldo
+
+### Limpiar Caché del Navegador
+Si los cambios no se ven tras actualizar:
+1. **Chrome/Edge**: Ctrl + F5 o Ctrl + Shift + R
+2. **Firefox**: Ctrl + F5 o Shift + F5
+3. **Safari**: Cmd + Shift + R
+4. **Modo incógnito**: Para probar sin caché
+
 ## Resolución de Problemas
 
 ### Emails No se Envían
@@ -207,6 +242,25 @@ php -S localhost:8000
 - Asegúrate de que el formulario y PHP estén en el mismo dominio
 - Verifica que no haya errores de sintaxis en el código
 - Revisa que todos los archivos se hayan subido correctamente
+
+### Problemas de Hosting Específicos
+
+#### Los Estilos No Se Aplican
+1. **Verifica cache busting**: Asegúrate de que `styles.css?v=1.2` esté en `index.html`
+2. **Forza recarga**: Usa Ctrl+F5 en el navegador
+3. **Verifica ruta**: Confirma que `styles.css` esté en la raíz
+4. **Revisa permisos**: El archivo debe ser accesible (644)
+
+#### El Logo No Vuelve al Inicio
+1. **Verifica JavaScript**: Asegúrate de que `script.js?v=1.2` se carga
+2. **Consola del navegador**: Revisa errores en F12 > Console
+3. **Respaldo CSS**: Debe funcionar con `scroll-behavior: smooth`
+4. **Elemento #top**: Verifica que `<body id="top">` esté presente
+
+#### Botón CTA Sin Estilos
+1. **Alta especificidad**: Los estilos usan `!important` para funcionar
+2. **Estructura HTML**: Verifica que la clase `nav-cta-button` esté presente
+3. **Cache del hosting**: Algunos hostings cachean CSS - espera unos minutos
 
 ## Personalización
 
