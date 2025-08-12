@@ -43,6 +43,7 @@ body {
     width: 100%;
     z-index: 1000;
     transition: all 0.3s ease;
+    min-height: 70px; /* Asegurar altura mínima consistente */
 }
 
 .nav-container {
@@ -792,7 +793,7 @@ body {
     .hero {
         flex-direction: column;
         text-align: center;
-        padding: 120px 1rem 60px;
+        padding: 140px 1rem 60px;
         min-height: 100vh;
     }
 
@@ -846,7 +847,28 @@ body {
 
 @media (max-width: 480px) {
     .hero {
-        padding: 110px 1rem 50px;
+        padding: 130px 1rem 50px;
+    }
+}
+
+/* Dispositivos con notch o barras de estado especiales */
+@media (max-width: 480px) and (max-height: 812px) {
+    .hero {
+        padding: 150px 1rem 50px;
+    }
+}
+
+/* Extra safety para dispositivos problemáticos */
+@media (max-width: 414px) {
+    .hero {
+        padding-top: 140px !important;
+    }
+}
+
+/* iPhones específicos y dispositivos similares */
+@media (max-width: 390px) and (max-height: 844px) {
+    .hero {
+        padding-top: 160px !important;
     }
     
     .hero h1 {
