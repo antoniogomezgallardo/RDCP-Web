@@ -428,7 +428,7 @@ body {
 .contact-info > p {
     color: var(--text-secondary);
     font-size: 1.1rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .contact-details {
