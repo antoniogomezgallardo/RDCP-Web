@@ -5,12 +5,13 @@ Un sitio web moderno y profesional para servicios de psicología con formulario 
 ## Características
 
 ✨ **Diseño Moderno**
-- Diseño responsive, mobile-first
-- Esquema de colores profesional con gradientes
+- Diseño responsive optimizado para móvil (mobile-first)
+- Esquema de colores profesional con gradientes verde/azul-verdoso
 - Animaciones y transiciones suaves
 - Interfaz limpia y accesible
-- Navegación mejorada con logo clickeable
+- Navegación mejorada con logo clickeable y menú hamburguesa
 - Botón CTA destacado en el menú de navegación
+- Optimización específica para dispositivos iOS (prevención de zoom automático)
 
 📧 **Funcionalidad de Email**
 - Formulario de contacto que envía emails
@@ -30,9 +31,15 @@ Un sitio web moderno y profesional para servicios de psicología con formulario 
 - Información de contacto completa en footer
 - Links a redes sociales (Instagram, LinkedIn)
 - Diseño profesional y accesible
-- Fotografías profesionales integradas con opacidad sutil
-- Imagen de perfil de Rocío en sección "Sobre Mí"
-- Fondos fotográficos que mantienen la legibilidad del contenido
+- **Fotografías profesionales integradas**:
+  - Imagen de fondo en hero (rocio_header.png) con 15% opacidad
+  - Foto de perfil profesional en sección "Sobre Mí" (rocio_portrait.png)
+  - Fondo sutil en sección de sesiones con 8% opacidad
+  - Enlaces estilizados con color principal y tipografía en negrita
+- **Optimización móvil avanzada**:
+  - Breakpoints específicos para 768px y 480px
+  - Tamaños de fuente optimizados para legibilidad móvil
+  - Prevención de zoom automático en formularios iOS
 
 🚀 **Optimización SEO**
 - Datos estructurados (Schema.org JSON-LD) para mejores resultados de búsqueda
@@ -172,6 +179,40 @@ El sitio incluye marcado Schema.org completo que permite a Google mostrar:
 - Verificación de checkbox de privacidad obligatorio
 - Log de actividad para monitoreo
 - Considera agregar CAPTCHA para protección adicional
+
+## Diseño Responsive
+
+### Breakpoints Optimizados
+El sitio está optimizado para múltiples resoluciones con breakpoints específicos:
+
+#### Desktop (1200px+)
+- Layout completo con hero de dos columnas
+- Navegación horizontal completa
+- Imágenes a tamaño completo
+
+#### Tablet (768px - 1199px) 
+- Hero adaptado a columna única
+- Menú hamburguesa activado
+- Tamaños de fuente ajustados
+
+#### Móvil (480px - 767px)
+- **Hero optimizado**: H1 a 2.2rem, padding aumentado a 120px superior
+- **Navegación**: Menú hamburguesa completamente funcional
+- **Formularios**: Font-size 16px para prevenir zoom en iOS
+- **Imágenes**: Foto de perfil reducida a 220px
+
+#### Móvil Pequeño (< 480px)
+- **Hero ultra-optimizado**: H1 a 1.8rem, line-height 1.2
+- **Botones**: CTA reducido a padding 12px/25px
+- **Footer**: Layout de una sola columna centrada
+- **Formularios**: Optimizados para pantallas pequeñas
+
+### Problemas Resueltos
+- ✅ H1 del hero truncado en móvil
+- ✅ Elementos superpuestos con navbar fijo
+- ✅ Zoom automático indeseado en iOS
+- ✅ Botones y enlaces demasiado pequeños en móvil
+- ✅ Espaciado inconsistente entre secciones
 
 ## Despliegue
 

@@ -61,19 +61,24 @@ Crear una presencia profesional online para ofrecer servicios de terapia psicol�
 - **Mensaje de éxito**: "¡Gracias por tu mensaje! Te contactaré lo antes posible."
 
 ### Características de Diseño
-- **Responsive**: Mobile-first design
-- **Colores**: Gradientes profesionales (verde/azul-verdoso)
-- **Tipografía**: Poppins (Google Fonts)
-- **Iconos**: Font Awesome
+- **Responsive**: Mobile-first design con breakpoints optimizados (768px, 480px)
+- **Colores**: Gradientes profesionales (verde/azul-verdoso) - Palette: #006769, #044542, #96E1D8
+- **Tipografía**: Poppins (Google Fonts) con tamaños adaptativos por dispositivo
+- **Iconos**: Font Awesome para elementos UI
 - **Animaciones**: Transiciones suaves y efectos de scroll
-- **Navegación**: Logo clickeable que vuelve al inicio
-- **CTA destacado**: Botón "Reserva Cita" en el menú principal
+- **Navegación**: Logo clickeable que vuelve al inicio + menú hamburguesa móvil
+- **CTA destacado**: Botón "Reserva Cita" optimizado por resolución
 - **Favicon**: Múltiples formatos (ICO, PNG) para compatibilidad total
-- **Fotografías profesionales**: 
-  - Imagen de fondo en hero con opacidad 15%
-  - Foto de perfil de Rocío en sección "Sobre Mí"
-  - Fondo sutil en sección de sesiones con opacidad 8%
-  - Enlaces estilizados en color principal y negrita
+- **Fotografías profesionales integradas**: 
+  - Hero: rocio_header.png como fondo (15% opacidad)
+  - About: rocio_portrait.png como foto de perfil centrada
+  - Sessions: rocio_header.png como fondo sutil (8% opacidad)
+  - Enlaces: Estilizados con color principal (#006769) y negrita
+- **Optimizaciones móviles críticas**:
+  - H1 del hero: 3.5rem → 2.2rem → 1.8rem (desktop → tablet → móvil)
+  - Prevención zoom iOS: font-size 16px en formularios
+  - Padding ajustado para navbar fijo
+  - Footer responsive con layout columna única
 
 ## Configuración Técnica
 
@@ -102,6 +107,14 @@ Crear una presencia profesional online para ofrecer servicios de terapia psicol�
 - **Smooth Scrolling**: Implementado en CSS y JavaScript como respaldo
 - **Navegación Optimizada**: Logo clickeable con scroll al inicio de página
 - **Estilos Forzados**: CTA button con estilos que funcionan en cualquier hosting
+- **Responsive Robusto**: 
+  - Media queries específicas para 768px y 480px
+  - Sistema de fallbacks para dispositivos edge-case
+  - Optimizaciones iOS específicas (zoom prevention)
+- **Performance Optimizada**:
+  - Imágenes de fondo con opacidades bajas para mantener performance
+  - CSS optimizado para rendering móvil
+  - JavaScript mínimo para funcionalidad core
 
 ### Seguridad Implementada
 - Sanitización con `htmlspecialchars()` y `strip_tags()`
@@ -186,6 +199,32 @@ Crear una presencia profesional online para ofrecer servicios de terapia psicol�
 - `script.js` (con manejo mejorado de scroll)
 - `contact.php` (mensaje actualizado)
 
+## Historial de Versiones y Mejoras
+
+### Versión Actual (Enero 2025)
+- **Funcionalidad de fotografías profesionales**:
+  - Integración de rocio_header.png y rocio_portrait.png
+  - Fondos con opacidades optimizadas (15% hero, 8% sessions)
+  - Foto de perfil profesional con posicionamiento centrado
+
+- **Optimizaciones responsive críticas**:
+  - Corrección H1 truncado en móvil (problema reportado por usuario)
+  - Breakpoints específicos para 768px y 480px
+  - Prevención zoom iOS en formularios
+  - CTA y elementos UI optimizados para móvil
+
+- **Mejoras UX/UI**:
+  - Enlaces en sessions estilizados con color principal y negrita
+  - Footer responsive con layout adaptativo
+  - Navegación mejorada con menú hamburguesa
+
+### Evolución del Proyecto
+1. **Versión inicial**: Node.js + Express con SMTP
+2. **Migración PHP**: Para compatibilidad hosting estático
+3. **Optimizaciones hosting**: Cache busting y alta especificidad CSS
+4. **Integración fotográfica**: Elementos visuales profesionales
+5. **Responsive perfecto**: Solución problemas móviles críticos
+
 ## Notas de Desarrollo
 - Diseño adaptado específicamente para servicios de psicología
 - Interfaz profesional que inspira confianza
@@ -195,3 +234,5 @@ Crear una presencia profesional online para ofrecer servicios de terapia psicol�
 - Fotografías profesionales integradas manteniendo la legibilidad
 - Elementos visuales que transmiten calidez y profesionalidad
 - Enfoque en la imagen personal de Rocío para generar confianza
+- **Testing riguroso en dispositivos móviles reales**
+- **Optimización continua basada en feedback de usuario**
