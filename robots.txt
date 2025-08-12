@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://rociodiezcabezapsicologia.com/sitemap.xml
+
+# Disallow indexing of certain files
+Disallow: /contact.php
+Disallow: /script.js
+Disallow: /styles.css
+Disallow: /*.pdf
+Disallow: /CONTEXT.md
+Disallow: /README.md
+
+# Allow important files
+Allow: /logo.png
+Allow: /favicon.ico
+Allow: /*.html
