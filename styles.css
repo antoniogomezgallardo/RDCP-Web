@@ -128,7 +128,6 @@ body {
     font-weight: 600 !important;
     transition: all 0.3s ease !important;
     border: 2px solid #044542 !important;
-    display: inline-block !important;
 }
 
 .nav-menu .nav-item .nav-cta-button:hover {
