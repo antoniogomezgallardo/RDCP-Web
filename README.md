@@ -30,6 +30,9 @@ Un sitio web moderno y profesional para servicios de psicología con formulario 
 - Información de contacto completa en footer
 - Links a redes sociales (Instagram, LinkedIn)
 - Diseño profesional y accesible
+- Fotografías profesionales integradas con opacidad sutil
+- Imagen de perfil de Rocío en sección "Sobre Mí"
+- Fondos fotográficos que mantienen la legibilidad del contenido
 
 🚀 **Optimización SEO**
 - Datos estructurados (Schema.org JSON-LD) para mejores resultados de búsqueda
@@ -59,6 +62,9 @@ Sube todos los archivos a tu hosting:
 - `styles.css` - Estilos CSS
 - `logo.png` - Logo
 - `favicon.ico` - Favicon para navegadores
+- `img/` - Carpeta con fotografías profesionales
+  - `rocio_header.png` - Imagen principal para fondos
+  - `rocio_portrait.png` - Foto de perfil de Rocío
 - `sitemap.xml` - Mapa del sitio para SEO
 - `robots.txt` - Instrucciones para crawlers
 - `contact-success.html` - Página de confirmación (opcional)
@@ -97,6 +103,9 @@ PsicoWeb/
 ├── script.js               # JavaScript del frontend
 ├── logo.png                # Logo de Rocío
 ├── favicon.ico             # Favicon para navegadores
+├── img/                    # Fotografías profesionales
+│   ├── rocio_header.png    # Imagen principal para fondos
+│   └── rocio_portrait.png  # Foto de perfil de Rocío
 ├── sitemap.xml             # Mapa del sitio para SEO
 ├── robots.txt              # Instrucciones para crawlers
 ├── index_maintenance-mode.html # Página de mantenimiento

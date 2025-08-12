@@ -62,13 +62,18 @@ Crear una presencia profesional online para ofrecer servicios de terapia psicol�
 
 ### Características de Diseño
 - **Responsive**: Mobile-first design
-- **Colores**: Gradientes profesionales (morado/azul)
+- **Colores**: Gradientes profesionales (verde/azul-verdoso)
 - **Tipografía**: Poppins (Google Fonts)
 - **Iconos**: Font Awesome
 - **Animaciones**: Transiciones suaves y efectos de scroll
 - **Navegación**: Logo clickeable que vuelve al inicio
 - **CTA destacado**: Botón "Reserva Cita" en el menú principal
 - **Favicon**: Múltiples formatos (ICO, PNG) para compatibilidad total
+- **Fotografías profesionales**: 
+  - Imagen de fondo en hero con opacidad 15%
+  - Foto de perfil de Rocío en sección "Sobre Mí"
+  - Fondo sutil en sección de sesiones con opacidad 8%
+  - Enlaces estilizados en color principal y negrita
 
 ## Configuración Técnica
 
@@ -152,6 +157,8 @@ Crear una presencia profesional online para ofrecer servicios de terapia psicol�
 - `script.js`: Lógica del frontend y validaciones
 - `styles.css`: Todos los estilos visuales
 - `index.html`: Contenido principal
+- `img/rocio_header.png`: Imagen principal para fondos de hero y sessions
+- `img/rocio_portrait.png`: Foto de perfil para sección "Sobre Mí"
 - `sitemap.xml`: Mapa del sitio para SEO
 - `robots.txt`: Instrucciones para crawlers
 - `favicon.ico`: Favicon principal del sitio
@@ -185,3 +192,6 @@ Crear una presencia profesional online para ofrecer servicios de terapia psicol�
 - Proceso de contacto simplificado para reducir fricción
 - Experiencia de usuario optimizada para personas buscando ayuda psicológica
 - Mensajes y validaciones en español argentino/español neutro
+- Fotografías profesionales integradas manteniendo la legibilidad
+- Elementos visuales que transmiten calidez y profesionalidad
+- Enfoque en la imagen personal de Rocío para generar confianza
