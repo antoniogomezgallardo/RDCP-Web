@@ -77,7 +77,7 @@ Mensaje:
 $message
 
 ---
-Este mensaje fue enviado desde el formulario de contacto de PsicoWeb.
+Este mensaje fue enviado desde el formulario de contacto de rociodiezcabezapsicologia.com.
 Fecha: " . date('d/m/Y H:i:s') . "
 ";
 
