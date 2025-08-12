@@ -1,4 +1,4 @@
-# CONTEXT.md - PsicoWeb
+# CONTEXT.md - RDCP
 
 ## Información del Proyecto
 
