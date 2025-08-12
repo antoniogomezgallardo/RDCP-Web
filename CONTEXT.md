@@ -173,9 +173,9 @@ Crear una presencia profesional online para ofrecer servicios de terapia psicol�
 
 ### Archivos Críticos
 - `contact.php`: Procesamiento del formulario
-- `script.js`: Lógica del frontend, validaciones y correcciones móviles dinámicas
-- `styles.css`: Todos los estilos visuales con breakpoints móviles avanzados
-- `index.html`: Contenido principal con versionado v=2.0 para cache busting
+- `script.js`: Lógica del frontend, validaciones, correcciones móviles dinámicas y carousel de testimonios
+- `styles.css`: Todos los estilos visuales con breakpoints móviles avanzados y carousel responsive
+- `index.html`: Contenido principal con versionado v=2.0 para cache busting y carousel de testimonios
 - `.htaccess`: Control de caché del servidor con headers agresivos
 - `img/rocio_header.png`: Imagen principal para fondos de hero y sessions
 - `img/rocio_portrait.png`: Foto de perfil para sección "Sobre Mí"
@@ -215,6 +215,15 @@ Crear una presencia profesional online para ofrecer servicios de terapia psicol�
   - Fondos con opacidades optimizadas (15% hero, 8% sessions)
   - Foto de perfil profesional con posicionamiento centrado
 
+- **Carousel de Testimonios Interactivo**:
+  - Sistema completo de carousel con 6 testimonios reales
+  - Navegación por flechas, indicadores y gestos táctiles (swipe)
+  - Autoplay inteligente con pausa en hover/interacción
+  - Responsive design: 3 testimonios (desktop) → 2 (tablet) → 1 (móvil)
+  - Touch/swipe optimizado para dispositivos móviles
+  - Flechas ocultas automáticamente en pantallas ≤375px
+  - Transiciones suaves y animaciones profesionales
+
 - **Optimizaciones responsive críticas**:
   - Corrección H1 truncado en móvil con sistema híbrido CSS + JavaScript
   - Breakpoints específicos para 768px y 480px + detección dinámica
@@ -234,6 +243,7 @@ Crear una presencia profesional online para ofrecer servicios de terapia psicol�
   - Enlaces en sessions estilizados con color principal y negrita
   - Footer responsive con layout adaptativo
   - Navegación mejorada con menú hamburguesa
+  - Sección testimonios integrada en navegación y footer
 
 ### Evolución del Proyecto
 1. **Versión inicial**: Node.js + Express con SMTP

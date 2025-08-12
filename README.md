@@ -36,6 +36,13 @@ Un sitio web moderno y profesional para servicios de psicología con formulario 
   - Foto de perfil profesional en sección "Sobre Mí" (rocio_portrait.png)
   - Fondo sutil en sección de sesiones con 8% opacidad
   - Enlaces estilizados con color principal y tipografía en negrita
+- **Carousel de Testimonios Interactivo**:
+  - Sistema completo con 6 testimonios reales y navegación fluida
+  - Responsive: 3 testimonios (desktop) → 2 (tablet) → 1 (móvil)
+  - Navegación por flechas, indicadores y gestos táctiles (swipe)
+  - Autoplay inteligente con pausa en hover/interacción
+  - Flechas ocultas automáticamente en pantallas pequeñas (≤375px)
+  - Touch/swipe optimizado para dispositivos móviles
 - **Optimización móvil avanzada**:
   - Breakpoints específicos para 768px y 480px
   - Tamaños de fuente optimizados para legibilidad móvil
@@ -222,6 +229,9 @@ El sitio está optimizado para múltiples resoluciones con breakpoints específi
 - ✅ Soporte para dispositivos Android modernos (OnePlus, Galaxy, Pixel)
 - ✅ Implementación de safe-area-inset para notch y navegación gestural
 - ✅ Sistema de debug para diagnóstico en dispositivos problemáticos
+- ✅ Carousel responsive funcional en todos los dispositivos
+- ✅ Touch/swipe gestures optimizados para móviles
+- ✅ Autoplay inteligente con control de usuario
 
 ## Despliegue
 
