@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 :root {
     --primary-color: #006769;
     --secondary-color: #044542;
@@ -114,6 +118,27 @@ body {
     width: 100%;
 }
 
+/* CTA Button in Navigation - High Specificity */
+.nav-menu .nav-item .nav-cta-button {
+    background-color: #006769 !important;
+    color: #ffffff !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: 25px !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+    border: 2px solid #044542 !important;
+    display: inline-block !important;
+}
+
+.nav-menu .nav-item .nav-cta-button:hover {
+    background-color: transparent !important;
+    color: #044542 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(4, 69, 66, 0.3) !important;
+}
+
+/* Legacy support - keeping original selectors */
 .nav-cta-button {
     background-color: #006769;
     color: #ffffff !important;

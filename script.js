@@ -17,8 +17,16 @@ document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
+        const href = this.getAttribute('href');
+        const target = document.querySelector(href);
+        
+        // Special handling for #top - scroll to top of page
+        if (href === '#top' || href === '#') {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        } else if (target) {
             const offsetTop = target.offsetTop - 80;
             window.scrollTo({
                 top: offsetTop,
