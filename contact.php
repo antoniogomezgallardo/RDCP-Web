@@ -97,7 +97,7 @@ file_put_contents('contact_log.txt', $log_entry, FILE_APPEND | LOCK_EX);
 if ($mail_sent) {
     echo json_encode([
         'success' => true,
-        'message' => '¡Gracias por tu mensaje! Te contactaré pronto para programar tu consulta inicial.'
+        'message' => '¡Gracias por tu mensaje! Te contactaré lo antes posible.'
     ]);
 } else {
     http_response_code(500);
