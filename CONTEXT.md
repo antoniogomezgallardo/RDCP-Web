@@ -4,15 +4,16 @@
 
 ### Cliente
 - **Nombre**: Rocío Díez Cabeza
-- **Profesión**: Psicóloga Sanitaria Colegiada
+- **Profesión**: Psicóloga Sanitaria Colegiada (M-33373)
 - **Especialidades**: 
+  - Psicoterapia integradora
   - Ansiedad y estrés
-  - Depresión
-  - Terapia de pareja
-  - Crecimiento personal
-  - Terapia Cognitivo Conductual (TCC)
-  - Mindfulness
-  - Atención informada en trauma
+  - Depresión y duelo
+  - Gestión emocional
+  - Autoestima y desarrollo personal
+  - Relaciones y apego
+  - Intervenciones basadas en Mindfulness
+  - Experiencia en psicoterapia online
 
 ### Objetivo del Sitio Web
 Crear una presencia profesional online para ofrecer servicios de terapia psicológica mediante sesiones virtuales, proporcionando información sobre servicios y un canal directo de contacto con potenciales clientes.
@@ -64,6 +65,9 @@ Crear una presencia profesional online para ofrecer servicios de terapia psicol�
 - **Tipografía**: Poppins (Google Fonts)
 - **Iconos**: Font Awesome
 - **Animaciones**: Transiciones suaves y efectos de scroll
+- **Navegación**: Logo clickeable que vuelve al inicio
+- **CTA destacado**: Botón "Reserva Cita" en el menú principal
+- **Favicon**: Múltiples formatos (ICO, PNG) para compatibilidad total
 
 ## Configuración Técnica
 
@@ -76,6 +80,15 @@ Crear una presencia profesional online para ofrecer servicios de terapia psicol�
 - **Email**: Configurar destinatario en `contact.php` línea 8 (`$to = "rocio@rociodiezcabezapsicologia.com"`)
 - **Logs**: Se crean automáticamente en `contact_log.txt`
 - **Sin archivos .env**: La configuración está directamente en el código PHP
+- **Dominio**: rociodiezcabezapsicologia.com
+
+### Optimización SEO Implementada
+- **Datos Estructurados**: Schema.org JSON-LD con información completa del negocio
+- **Meta Tags**: Open Graph, Twitter Cards, keywords optimizadas
+- **Sitemap**: sitemap.xml para indexación de motores de búsqueda
+- **Robots.txt**: Instrucciones para crawlers de búsqueda
+- **Favicon multi-formato**: ICO y PNG para máxima compatibilidad
+- **Estructura semántica**: Headings organizados para SEO
 
 ### Seguridad Implementada
 - Sanitización con `htmlspecialchars()` y `strip_tags()`
@@ -88,22 +101,24 @@ Crear una presencia profesional online para ofrecer servicios de terapia psicol�
 
 ### Servicios Ofrecidos
 1. **Terapia Individual**: Sesiones personalizadas
-2. **Terapia de Pareja**: Mejora de comunicación y comprensión
-3. **Estrés y Ansiedad**: Estrategias de manejo
-4. **Apoyo en Depresión**: Atención compasiva
+2. **Estrés y Ansiedad**: Estrategias efectivas de manejo
+3. **Depresión y Duelo**: Acompañamiento terapéutico especializado
+4. **Relaciones y Apego**: Vínculos satisfactorios y comunicación asertiva
+5. **Gestión Emocional**: Identificación y expresión saludable de emociones
+6. **Autoestima**: Fortalecimiento de autoconfianza y relación personal
 
 ### Proceso de Sesiones
-1. Consulta inicial gratuita (15 minutos)
-2. Programación de sesión online
-3. Videollamada segura
-4. Apoyo continuo entre sesiones
+1. **Pide tu cita**: Contacto por WhatsApp, email o formulario
+2. **Contacto**: Respuesta rápida para acordar día y hora
+3. **Consulta inicial**: Sesión gratuita de 20 minutos para evaluar compatibilidad
 
 ### Tarifas
 - Individual: 60€/sesión
+- Bono 5 sesiones: 225€
 
-### Horarios
-- Lunes - Viernes: 9:00 - 19:00
-- Sábado: 10:00 - 16:00
+### Horarios de Contacto
+- Lunes - Viernes: 9:00 - 20:00
+- Sábado: 10:00 - 14:00
 
 ### Información de Contacto
 - **Teléfono**: +34 660 768 788
@@ -129,6 +144,9 @@ Crear una presencia profesional online para ofrecer servicios de terapia psicol�
 - `script.js`: Lógica del frontend y validaciones
 - `styles.css`: Todos los estilos visuales
 - `index.html`: Contenido principal
+- `sitemap.xml`: Mapa del sitio para SEO
+- `robots.txt`: Instrucciones para crawlers
+- `favicon.ico`: Favicon principal del sitio
 
 ### Monitoreo
 - Revisar `contact_log.txt` para actividad de formularios

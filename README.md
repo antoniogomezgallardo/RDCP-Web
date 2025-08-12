@@ -9,6 +9,8 @@ Un sitio web moderno y profesional para servicios de psicología con formulario 
 - Esquema de colores profesional con gradientes
 - Animaciones y transiciones suaves
 - Interfaz limpia y accesible
+- Navegación mejorada con logo clickeable
+- Botón CTA destacado en el menú de navegación
 
 📧 **Funcionalidad de Email**
 - Formulario de contacto que envía emails
@@ -24,10 +26,19 @@ Un sitio web moderno y profesional para servicios de psicología con formulario 
 - Filtros de email válidos
 
 🎨 **Características de Diseño**
-- Favicon personalizado con el logo de Rocío
+- Favicon personalizado con el logo de Rocío (múltiples formatos)
 - Información de contacto completa en footer
 - Links a redes sociales (Instagram, LinkedIn)
 - Diseño profesional y accesible
+
+🚀 **Optimización SEO**
+- Datos estructurados (Schema.org JSON-LD) para mejores resultados de búsqueda
+- Meta tags optimizados para buscadores y redes sociales (Open Graph, Twitter Cards)
+- Sitemap.xml para indexación eficiente
+- Robots.txt para guía de crawlers
+- Keywords y descripciones optimizadas
+- Favicon en múltiples formatos (.ico, .png)
+- Estructura de headings optimizada
 
 ## Instalación Rápida
 
@@ -47,6 +58,9 @@ Sube todos los archivos a tu hosting:
 - `script.js` - JavaScript del frontend  
 - `styles.css` - Estilos CSS
 - `logo.png` - Logo
+- `favicon.ico` - Favicon para navegadores
+- `sitemap.xml` - Mapa del sitio para SEO
+- `robots.txt` - Instrucciones para crawlers
 - `contact-success.html` - Página de confirmación (opcional)
 
 ### 3. Configurar Hosting
@@ -82,6 +96,9 @@ PsicoWeb/
 ├── styles.css              # Todos los estilos CSS
 ├── script.js               # JavaScript del frontend
 ├── logo.png                # Logo de Rocío
+├── favicon.ico             # Favicon para navegadores
+├── sitemap.xml             # Mapa del sitio para SEO
+├── robots.txt              # Instrucciones para crawlers
 ├── index_maintenance-mode.html # Página de mantenimiento
 ├── contact_log.txt         # Log de contactos (se crea automáticamente)
 ├── CONTEXT.md              # Contexto del proyecto
@@ -110,6 +127,33 @@ El sistema envía un email por cada envío de formulario:
 - Respaldo en archivo de log
 
 El email incluye formato HTML limpio y toda la información necesaria para contactar al cliente.
+
+## Optimización SEO
+
+### Datos Estructurados
+El sitio incluye marcado Schema.org completo que permite a Google mostrar:
+- Información de la psicóloga y credenciales
+- Servicios ofrecidos con precios
+- Horarios de contacto
+- Calificaciones y reseñas
+- Ubicación del servicio (España)
+
+### Meta Tags
+- **Open Graph**: Para Facebook, LinkedIn y otras redes sociales
+- **Twitter Cards**: Para mejorar la apariencia en Twitter
+- **Keywords optimizadas**: Términos relevantes para búsquedas psicológicas
+- **Descripciones meta**: Textos optimizados para resultados de búsqueda
+
+### Archivos SEO
+- **sitemap.xml**: Lista todas las páginas para los motores de búsqueda
+- **robots.txt**: Guía a los crawlers sobre qué indexar
+- **Favicon multi-formato**: Para aparecer correctamente en todos los navegadores
+
+### Configuración Post-Lanzamiento
+1. Registra el sitio en Google Search Console
+2. Sube el sitemap.xml a Google Search Console
+3. Verifica los datos estructurados con Google Rich Results Test
+4. Monitorea el rendimiento SEO regularmente
 
 ## Consideraciones de Seguridad
 
