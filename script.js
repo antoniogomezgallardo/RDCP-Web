@@ -1,3 +1,81 @@
+// Fix hero padding based on actual navbar height
+function fixHeroPadding() {
+    const navbar = document.querySelector('.navbar');
+    const hero = document.querySelector('.hero');
+    const heroH1 = document.querySelector('.hero h1');
+    
+    if (navbar && hero && heroH1) {
+        const navbarHeight = navbar.offsetHeight;
+        let safetyMargin = 40; // Base safety margin
+        
+        // Progressive increase until h1 is fully visible
+        let totalPadding = navbarHeight + safetyMargin;
+        
+        // Only apply on mobile devices
+        if (window.innerWidth <= 768) {
+            // Test if h1 is overlapping with navbar
+            const heroRect = hero.getBoundingClientRect();
+            const h1Rect = heroH1.getBoundingClientRect();
+            
+            // If h1 top is above navbar bottom, increase padding
+            if (h1Rect.top < navbarHeight) {
+                const overlap = navbarHeight - h1Rect.top + 20;
+                totalPadding = Math.max(totalPadding, totalPadding + overlap);
+                console.log(`OnePlus Fix: H1 overlap detected: ${overlap}px`);
+            }
+            
+            hero.style.paddingTop = `${totalPadding}px`;
+            hero.style.setProperty('padding-top', `${totalPadding}px`, 'important');
+            
+            console.log(`OnePlus Fix: Screen ${window.innerWidth}x${window.innerHeight}, Navbar: ${navbarHeight}px, Applied: ${totalPadding}px`);
+        }
+    }
+}
+
+// Run on DOM ready, load and resize
+document.addEventListener('DOMContentLoaded', fixHeroPadding);
+window.addEventListener('load', fixHeroPadding);
+window.addEventListener('resize', fixHeroPadding);
+
+// Additional fix for OnePlus/Android after delay (sometimes layout takes time)
+setTimeout(fixHeroPadding, 500);
+
+// Debug info for OnePlus 12 (can be removed in production)
+function debugInfo() {
+    console.log('=== MOBILE DEBUG INFO ===');
+    console.log('Screen:', window.innerWidth, 'x', window.innerHeight);
+    console.log('Viewport:', window.visualViewport ? window.visualViewport.width + 'x' + window.visualViewport.height : 'N/A');
+    console.log('User Agent:', navigator.userAgent);
+    console.log('Device Pixel Ratio:', window.devicePixelRatio);
+    
+    const navbar = document.querySelector('.navbar');
+    const hero = document.querySelector('.hero');
+    const h1 = document.querySelector('.hero h1');
+    
+    if (navbar) {
+        const navRect = navbar.getBoundingClientRect();
+        console.log('Navbar height:', navbar.offsetHeight, 'px');
+        console.log('Navbar rect:', navRect);
+    }
+    
+    if (hero) {
+        const heroStyle = getComputedStyle(hero);
+        console.log('Hero padding-top:', heroStyle.paddingTop);
+    }
+    
+    if (h1) {
+        const h1Rect = h1.getBoundingClientRect();
+        console.log('H1 position:', h1Rect);
+        console.log('H1 is visible:', h1Rect.top >= 0);
+    }
+    console.log('========================');
+}
+
+// Run debug on mobile devices
+if (window.innerWidth <= 768) {
+    setTimeout(debugInfo, 1000);
+}
+
 // Mobile Navigation Toggle
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');

@@ -40,6 +40,9 @@ Un sitio web moderno y profesional para servicios de psicología con formulario 
   - Breakpoints específicos para 768px y 480px
   - Tamaños de fuente optimizados para legibilidad móvil
   - Prevención de zoom automático en formularios iOS
+  - JavaScript dinámico para detección de altura de navbar
+  - Corrección automática de padding en dispositivos problemáticos
+  - Soporte para CSS Environment Variables (safe-area-inset)
 
 🚀 **Optimización SEO**
 - Datos estructurados (Schema.org JSON-LD) para mejores resultados de búsqueda
@@ -209,10 +212,14 @@ El sitio está optimizado para múltiples resoluciones con breakpoints específi
 
 ### Problemas Resueltos
 - ✅ H1 del hero truncado en móvil
-- ✅ Elementos superpuestos con navbar fijo
+- ✅ Elementos superpuestos with navbar fijo
 - ✅ Zoom automático indeseado en iOS
 - ✅ Botones y enlaces demasiado pequeños en móvil
 - ✅ Espaciado inconsistente entre secciones
+- ✅ Detección dinámica de altura de navbar con JavaScript
+- ✅ Soporte para dispositivos Android modernos (OnePlus, Galaxy, Pixel)
+- ✅ Implementación de safe-area-inset para notch y navegación gestural
+- ✅ Sistema de debug para diagnóstico en dispositivos problemáticos
 
 ## Despliegue
 

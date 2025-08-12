@@ -955,14 +955,22 @@ body {
 /* OnePlus 12 específico (aproximación basada en resolución común) */
 @media (max-width: 412px) and (min-height: 915px) {
     .hero {
-        padding: 250px 1rem 50px !important;
-        padding-top: calc(250px + env(safe-area-inset-top, 0px)) !important;
+        padding: 320px 1rem 50px !important;
+        padding-top: calc(320px + env(safe-area-inset-top, 0px)) !important;
     }
     
     .hero h1 {
         font-size: 1.7rem !important;
         line-height: 1.1 !important;
         margin-bottom: 0.8rem !important;
+        margin-top: 20px !important;
+    }
+}
+
+/* OnePlus/Android - Approach nuclear */
+@media (max-width: 450px) {
+    .hero {
+        padding-top: max(300px, calc(200px + env(safe-area-inset-top, 0px))) !important;
     }
 }
 

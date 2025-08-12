@@ -77,8 +77,11 @@ Crear una presencia profesional online para ofrecer servicios de terapia psicol�
 - **Optimizaciones móviles críticas**:
   - H1 del hero: 3.5rem → 2.2rem → 1.8rem (desktop → tablet → móvil)
   - Prevención zoom iOS: font-size 16px en formularios
-  - Padding ajustado para navbar fijo
+  - Padding dinámico ajustado por JavaScript en tiempo real
   - Footer responsive con layout columna única
+  - Sistema híbrido CSS + JavaScript para corrección automática
+  - Detección de overlap y corrección automática de padding
+  - Soporte CSS Environment Variables para safe-areas
 
 ## Configuración Técnica
 
@@ -167,8 +170,8 @@ Crear una presencia profesional online para ofrecer servicios de terapia psicol�
 
 ### Archivos Críticos
 - `contact.php`: Procesamiento del formulario
-- `script.js`: Lógica del frontend y validaciones
-- `styles.css`: Todos los estilos visuales
+- `script.js`: Lógica del frontend, validaciones y correcciones móviles dinámicas
+- `styles.css`: Todos los estilos visuales con breakpoints móviles avanzados
 - `index.html`: Contenido principal
 - `img/rocio_header.png`: Imagen principal para fondos de hero y sessions
 - `img/rocio_portrait.png`: Foto de perfil para sección "Sobre Mí"
@@ -208,10 +211,13 @@ Crear una presencia profesional online para ofrecer servicios de terapia psicol�
   - Foto de perfil profesional con posicionamiento centrado
 
 - **Optimizaciones responsive críticas**:
-  - Corrección H1 truncado en móvil (problema reportado por usuario)
-  - Breakpoints específicos para 768px y 480px
+  - Corrección H1 truncado en móvil con sistema híbrido CSS + JavaScript
+  - Breakpoints específicos para 768px y 480px + detección dinámica
   - Prevención zoom iOS en formularios
   - CTA y elementos UI optimizados para móvil
+  - Detección automática de navbar height y corrección de padding
+  - Soporte para dispositivos Android modernos con safe-area-inset
+  - Sistema de debug para diagnóstico en dispositivos problemáticos
 
 - **Mejoras UX/UI**:
   - Enlaces en sessions estilizados con color principal y negrita
