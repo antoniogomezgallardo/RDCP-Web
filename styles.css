@@ -178,11 +178,30 @@ body {
     align-items: center;
     padding: 120px 2rem 60px;
     color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('img/rocio_header.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+    z-index: 0;
 }
 
 .hero-content {
     flex: 1;
     max-width: 600px;
+    position: relative;
+    z-index: 1;
 }
 
 .hero h1 {
@@ -220,6 +239,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    z-index: 1;
 }
 
 .hero-placeholder {
@@ -267,7 +288,9 @@ body {
 .therapist-photo {
     width: 280px;
     height: 280px;
-    background: var(--gradient);
+    background-image: url('img/rocio_portrait.png');
+    background-size: cover;
+    background-position: center 60%;
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -275,6 +298,7 @@ body {
     box-shadow: var(--shadow);
     transform: rotate(-5deg);
     transition: transform 0.3s ease;
+    overflow: hidden;
 }
 
 .therapist-photo:hover {
@@ -282,8 +306,7 @@ body {
 }
 
 .therapist-photo i {
-    font-size: 80px;
-    color: white;
+    display: none;
 }
 
 .about-text h2 {
@@ -392,6 +415,23 @@ body {
 .sessions {
     padding: 120px 0;
     background: var(--background-light);
+    position: relative;
+    overflow: hidden;
+}
+
+.sessions::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('img/rocio_header.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.08;
+    z-index: 0;
 }
 
 .sessions h2 {
@@ -400,12 +440,16 @@ body {
     font-weight: 600;
     margin-bottom: 4rem;
     color: var(--text-primary);
+    position: relative;
+    z-index: 1;
 }
 
 .steps-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
+    position: relative;
+    z-index: 1;
 }
 
 .step {
