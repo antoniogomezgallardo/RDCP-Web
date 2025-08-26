@@ -6,6 +6,9 @@
 
 html {
     scroll-behavior: smooth;
+    /* iOS specific fixes */
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
 }
 
 :root {
@@ -26,6 +29,9 @@ body {
     line-height: 1.6;
     color: var(--text-primary);
     overflow-x: hidden;
+    /* iOS scroll improvements */
+    -webkit-overflow-scrolling: touch;
+    touch-action: manipulation;
 }
 
 .container {
@@ -117,6 +123,7 @@ body {
 .nav-link:hover::after {
     width: 100%;
 }
+
 
 /* CTA Button in Navigation - High Specificity */
 .nav-menu .nav-item .nav-cta-button {
@@ -580,6 +587,9 @@ body {
     flex: 1;
     overflow: hidden;
     border-radius: 20px;
+    /* iOS scroll improvements */
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x pinch-zoom;
 }
 
 .testimonials-track {
@@ -775,6 +785,102 @@ body {
     line-height: 1.6;
 }
 
+
+/* WhatsApp inline link */
+.whatsapp-inline-link {
+    color: #25D366;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.whatsapp-inline-link:hover {
+    color: #128C7E;
+    text-decoration: underline;
+}
+
+/* Floating WhatsApp Button */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25D366;
+    color: #ffffff;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+    color: #ffffff;
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+}
+
+.whatsapp-float i {
+    font-size: 28px;
+}
+
+/* WhatsApp tooltip */
+.whatsapp-tooltip {
+    position: absolute;
+    right: 70px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #333;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.whatsapp-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent #333;
+}
+
+.whatsapp-float:hover .whatsapp-tooltip {
+    opacity: 1;
+    visibility: visible;
+    right: 75px;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    }
+    50% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 0 0 10px rgba(37, 211, 102, 0.1);
+    }
+    100% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    }
+}
+
 /* Contact Form */
 .contact-form {
     background: var(--background-light);
@@ -923,17 +1029,55 @@ body {
     justify-content: center;
     width: 40px;
     height: 40px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15);
     border-radius: 50%;
     color: white;
     text-decoration: none;
     font-size: 1.2rem;
     transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .social-links a:hover {
     background: var(--primary-color);
     transform: translateY(-2px);
+}
+
+/* WhatsApp specific styling in footer */
+.social-links a[aria-label="WhatsApp"] {
+    background: rgba(37, 211, 102, 0.15);
+    border: 1px solid rgba(37, 211, 102, 0.3);
+}
+
+.social-links a[aria-label="WhatsApp"]:hover {
+    background: #25D366;
+    border: 1px solid #25D366;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+/* Instagram specific styling in footer */
+.social-links a[aria-label="Instagram"] {
+    background: rgba(225, 48, 108, 0.15);
+    border: 1px solid rgba(225, 48, 108, 0.3);
+}
+
+.social-links a[aria-label="Instagram"]:hover {
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+    border: 1px solid #dc2743;
+    box-shadow: 0 4px 12px rgba(225, 48, 108, 0.3);
+}
+
+/* LinkedIn specific styling in footer */
+.social-links a[aria-label="LinkedIn"] {
+    background: rgba(0, 119, 181, 0.15);
+    border: 1px solid rgba(0, 119, 181, 0.3);
+}
+
+.social-links a[aria-label="LinkedIn"]:hover {
+    background: #0077B5;
+    border: 1px solid #0077B5;
+    box-shadow: 0 4px 12px rgba(0, 119, 181, 0.3);
 }
 
 .footer-emergency p {
@@ -1129,6 +1273,30 @@ body {
     .contact-form {
         padding: 2rem;
     }
+    
+    
+    /* Mobile floating WhatsApp button */
+    .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 26px;
+    }
+    
+    .whatsapp-float i {
+        font-size: 24px;
+    }
+    
+    .whatsapp-tooltip {
+        font-size: 12px;
+        padding: 6px 10px;
+        right: 65px;
+    }
+    
+    .whatsapp-float:hover .whatsapp-tooltip {
+        right: 70px;
+    }
 
     section {
         padding: 80px 0 !important;
@@ -1261,6 +1429,29 @@ body {
     .indicator {
         width: 8px;
         height: 8px;
+    }
+    
+    /* Extra small screens floating WhatsApp */
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 15px;
+        right: 15px;
+        font-size: 22px;
+    }
+    
+    .whatsapp-float i {
+        font-size: 20px;
+    }
+    
+    .whatsapp-tooltip {
+        font-size: 11px;
+        padding: 5px 8px;
+        right: 60px;
+    }
+    
+    .whatsapp-float:hover .whatsapp-tooltip {
+        right: 65px;
     }
     
     /* Mejora el espaciado del footer */

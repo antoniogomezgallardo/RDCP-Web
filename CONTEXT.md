@@ -64,7 +64,7 @@ Crear una presencia profesional online para ofrecer servicios de terapia psicol�
 - **Responsive**: Mobile-first design con breakpoints optimizados (768px, 480px)
 - **Colores**: Gradientes profesionales (verde/azul-verdoso) - Palette: #006769, #044542, #96E1D8
 - **Tipografía**: Poppins (Google Fonts) con tamaños adaptativos por dispositivo
-- **Iconos**: Font Awesome para elementos UI
+- **Iconos**: Font Awesome 6.4.0 para elementos UI con compatibilidad completa
 - **Animaciones**: Transiciones suaves y efectos de scroll
 - **Navegación**: Logo clickeable que vuelve al inicio + menú hamburguesa móvil
 - **CTA destacado**: Botón "Reserva Cita" optimizado por resolución
@@ -209,20 +209,21 @@ Crear una presencia profesional online para ofrecer servicios de terapia psicol�
 
 ## Historial de Versiones y Mejoras
 
-### Versión Actual (Enero 2025)
+### Versión Actual (Agosto 2025)
 - **Funcionalidad de fotografías profesionales**:
   - Integración de rocio_header.png y rocio_portrait.png
   - Fondos con opacidades optimizadas (15% hero, 8% sessions)
   - Foto de perfil profesional con posicionamiento centrado
 
 - **Carousel de Testimonios Interactivo**:
-  - Sistema completo de carousel con 6 testimonios reales
+  - Sistema completo de carousel con 13 testimonios reales de pacientes auténticos
   - Navegación por flechas, indicadores y gestos táctiles (swipe)
   - Autoplay inteligente con pausa en hover/interacción
   - Responsive design: 3 testimonios (desktop) → 2 (tablet) → 1 (móvil)
   - Touch/swipe optimizado para dispositivos móviles
   - Flechas ocultas automáticamente en pantallas ≤375px
   - Transiciones suaves y animaciones profesionales
+  - Estructura HTML completamente corregida para evitar problemas de layout y descuadres
 
 - **Optimizaciones responsive críticas**:
   - Corrección H1 truncado en móvil con sistema híbrido CSS + JavaScript
@@ -244,6 +245,9 @@ Crear una presencia profesional online para ofrecer servicios de terapia psicol�
   - Footer responsive con layout adaptativo
   - Navegación mejorada con menú hamburguesa
   - Sección testimonios integrada en navegación y footer
+  - Navbar con espaciado visual mejorado (max-width: 1400px) para mejor separación logo-menú
+  - FontAwesome actualizado a v6.4.0 para compatibilidad completa de iconos
+  - Corrección de estructura HTML testimonios para prevenir descuadres visuales
 
 ### Evolución del Proyecto
 1. **Versión inicial**: Node.js + Express con SMTP

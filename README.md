@@ -37,12 +37,13 @@ Un sitio web moderno y profesional para servicios de psicología con formulario 
   - Fondo sutil en sección de sesiones con 8% opacidad
   - Enlaces estilizados con color principal y tipografía en negrita
 - **Carousel de Testimonios Interactivo**:
-  - Sistema completo con 6 testimonios reales y navegación fluida
+  - Sistema completo con 13 testimonios reales de pacientes
   - Responsive: 3 testimonios (desktop) → 2 (tablet) → 1 (móvil)
   - Navegación por flechas, indicadores y gestos táctiles (swipe)
   - Autoplay inteligente con pausa en hover/interacción
   - Flechas ocultas automáticamente en pantallas pequeñas (≤375px)
   - Touch/swipe optimizado para dispositivos móviles
+  - Estructura HTML corregida para evitar descuadres visuales
 - **Optimización móvil avanzada**:
   - Breakpoints específicos para 768px y 480px
   - Tamaños de fuente optimizados para legibilidad móvil
@@ -50,6 +51,7 @@ Un sitio web moderno y profesional para servicios de psicología con formulario 
   - JavaScript dinámico para detección de altura de navbar
   - Corrección automática de padding en dispositivos problemáticos
   - Soporte para CSS Environment Variables (safe-area-inset)
+  - Navbar con espaciado mejorado (max-width: 1400px para mejor separación)
 
 🚀 **Optimización SEO**
 - Datos estructurados (Schema.org JSON-LD) para mejores resultados de búsqueda
