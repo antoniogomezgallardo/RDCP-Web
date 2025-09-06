@@ -91,58 +91,53 @@ document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', 
     navMenu.classList.remove('active');
 }));
 
-// Smooth scrolling for navigation links with iOS support
+// Optimized smooth scrolling for all devices using modern scrollIntoView
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const href = this.getAttribute('href');
-        const target = document.querySelector(href);
-        
-        // Detect iOS devices
-        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
-                     (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
         
         // Special handling for #top - scroll to top of page
         if (href === '#top' || href === '#') {
-            if (isIOS) {
-                // iOS fallback - smooth but reliable
-                window.scrollTo(0, 0);
-            } else {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
+            // Use scrollIntoView for consistent behavior across devices
+            document.body.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+                inline: 'nearest'
+            });
+        } else {
+            const target = document.querySelector(href);
+            if (target) {
+                // Use scrollIntoView with offset adjustment for fixed navbar
+                const navbar = document.querySelector('.navbar');
+                const navbarHeight = navbar ? navbar.offsetHeight : 80;
+                
+                // Create a temporary element above the target for proper offset
+                const offsetElement = document.createElement('div');
+                offsetElement.style.cssText = `
+                    position: absolute;
+                    top: ${target.offsetTop - navbarHeight - 20}px;
+                    left: 0;
+                    width: 1px;
+                    height: 1px;
+                    pointer-events: none;
+                    opacity: 0;
+                `;
+                document.body.appendChild(offsetElement);
+                
+                // Scroll to the offset element instead
+                offsetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start',
+                    inline: 'nearest'
                 });
-            }
-        } else if (target) {
-            const offsetTop = target.offsetTop - 80;
-            if (isIOS) {
-                // iOS fallback with manual smooth scrolling
-                const start = window.pageYOffset;
-                const distance = offsetTop - start;
-                const duration = 800;
-                let startTime = null;
                 
-                function animation(currentTime) {
-                    if (startTime === null) startTime = currentTime;
-                    const timeElapsed = currentTime - startTime;
-                    const run = ease(timeElapsed, start, distance, duration);
-                    window.scrollTo(0, run);
-                    if (timeElapsed < duration) requestAnimationFrame(animation);
-                }
-                
-                function ease(t, b, c, d) {
-                    t /= d / 2;
-                    if (t < 1) return c / 2 * t * t + b;
-                    t--;
-                    return -c / 2 * (t * (t - 2) - 1) + b;
-                }
-                
-                requestAnimationFrame(animation);
-            } else {
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
+                // Remove the temporary element after scrolling
+                setTimeout(() => {
+                    if (offsetElement.parentNode) {
+                        offsetElement.parentNode.removeChild(offsetElement);
+                    }
+                }, 1000);
             }
         }
     });
@@ -321,17 +316,25 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Navbar scroll effect
+// Throttled navbar scroll effect for better performance
+let navbarScrollThrottle = null;
 window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.backdropFilter = 'blur(10px)';
-    } else {
-        navbar.style.background = 'var(--background-white)';
-        navbar.style.backdropFilter = 'none';
-    }
-});
+    if (navbarScrollThrottle) return;
+    
+    navbarScrollThrottle = requestAnimationFrame(() => {
+        const navbar = document.querySelector('.navbar');
+        if (navbar) {
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.backdropFilter = 'blur(10px)';
+            } else {
+                navbar.style.background = 'var(--background-white)';
+                navbar.style.backdropFilter = 'none';
+            }
+        }
+        navbarScrollThrottle = null;
+    });
+}, { passive: true });
 
 // Intersection Observer for fade-in animations
 const observerOptions = {
@@ -603,67 +606,85 @@ class TestimonialsCarousel {
     }
     
     addTouchSupport() {
-        let startX = 0;
-        let startY = 0;
-        let deltaX = 0;
-        let deltaY = 0;
-        let isSwiping = false;
+        // Use class properties for touch state
+        this.touchState = {
+            startX: 0,
+            startY: 0,
+            deltaX: 0,
+            deltaY: 0,
+            isSwiping: false,
+            isScrolling: false
+        };
         
         this.track.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-            startY = e.touches[0].clientY;
-            isSwiping = false;
+            this.touchState.startX = e.touches[0].clientX;
+            this.touchState.startY = e.touches[0].clientY;
+            this.touchState.isSwiping = false;
+            this.touchState.isScrolling = false;
         }, { passive: true });
         
         this.track.addEventListener('touchmove', (e) => {
-            if (!startX || !startY) return;
+            if (!this.touchState.startX || !this.touchState.startY) return;
             
-            deltaX = e.touches[0].clientX - startX;
-            deltaY = e.touches[0].clientY - startY;
+            this.touchState.deltaX = e.touches[0].clientX - this.touchState.startX;
+            this.touchState.deltaY = e.touches[0].clientY - this.touchState.startY;
             
-            // Determine if this is a horizontal swipe
-            if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 10) {
-                isSwiping = true;
-                e.preventDefault(); // Prevent vertical scrolling only when swiping
+            const absDeltaX = Math.abs(this.touchState.deltaX);
+            const absDeltaY = Math.abs(this.touchState.deltaY);
+            
+            // Determine gesture intent early
+            if (!this.touchState.isSwiping && !this.touchState.isScrolling) {
+                // Require more intentional horizontal movement to prevent conflicts
+                if (absDeltaX > 20 && absDeltaX > absDeltaY * 1.5) {
+                    this.touchState.isSwiping = true;
+                } else if (absDeltaY > 10) {
+                    this.touchState.isScrolling = true;
+                }
             }
-        });
+            
+            // Only prevent default for clear horizontal swipes
+            if (this.touchState.isSwiping && absDeltaX > 30) {
+                e.preventDefault();
+            }
+        }, { passive: false }); // Non-passive to allow preventDefault when needed
         
         this.track.addEventListener('touchend', (e) => {
-            if (!startX || !startY || !isSwiping) {
-                // Reset values and return if not a valid swipe
-                startX = 0;
-                startY = 0;
-                deltaX = 0;
-                deltaY = 0;
-                isSwiping = false;
+            if (!this.touchState.startX || !this.touchState.startY || !this.touchState.isSwiping || this.touchState.isScrolling) {
+                // Reset and allow normal scrolling
+                this.resetTouchState();
                 return;
             }
             
             // Adjust minimum swipe distance based on screen size
             const windowWidth = window.innerWidth;
-            const minSwipeDistance = windowWidth <= 375 ? 30 : 50;
+            const minSwipeDistance = windowWidth <= 375 ? 40 : 60;
             
-            if (Math.abs(deltaX) > minSwipeDistance) {
+            if (Math.abs(this.touchState.deltaX) > minSwipeDistance) {
                 this.stopAutoplay();
                 
-                if (deltaX > 0) {
-                    // Swipe right - previous slide
+                if (this.touchState.deltaX > 0) {
                     this.prevSlide();
                 } else {
-                    // Swipe left - next slide  
                     this.nextSlide();
                 }
                 
                 this.startAutoplay();
             }
             
-            // Reset values
-            startX = 0;
-            startY = 0;
-            deltaX = 0;
-            deltaY = 0;
-            isSwiping = false;
+            this.resetTouchState();
         }, { passive: true });
+    }
+    
+    resetTouchState() {
+        // Reset all touch tracking variables
+        if (this.touchState) {
+            this.touchState.startX = 0;
+            this.touchState.startY = 0;
+            this.touchState.deltaX = 0;
+            this.touchState.deltaY = 0;
+            this.touchState.isSwiping = false;
+            this.touchState.isScrolling = false;
+        }
     }
     
     prevSlide() {

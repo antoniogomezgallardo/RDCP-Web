@@ -6,9 +6,6 @@
 
 html {
     scroll-behavior: smooth;
-    /* iOS specific fixes */
-    -webkit-overflow-scrolling: touch;
-    overflow-scrolling: touch;
 }
 
 :root {
@@ -29,9 +26,8 @@ body {
     line-height: 1.6;
     color: var(--text-primary);
     overflow-x: hidden;
-    /* iOS scroll improvements */
-    -webkit-overflow-scrolling: touch;
-    touch-action: manipulation;
+    /* Optimized touch handling for better scroll performance */
+    touch-action: pan-y pinch-zoom;
 }
 
 .container {
@@ -587,9 +583,6 @@ body {
     flex: 1;
     overflow: hidden;
     border-radius: 20px;
-    /* iOS scroll improvements */
-    -webkit-overflow-scrolling: touch;
-    touch-action: pan-x pinch-zoom;
 }
 
 .testimonials-track {
