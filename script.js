@@ -108,36 +108,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         } else {
             const target = document.querySelector(href);
             if (target) {
-                // Use scrollIntoView with offset adjustment for fixed navbar
+                // Calculate offset for fixed navbar
                 const navbar = document.querySelector('.navbar');
                 const navbarHeight = navbar ? navbar.offsetHeight : 80;
+                const targetTop = target.offsetTop - navbarHeight - 20;
                 
-                // Create a temporary element above the target for proper offset
-                const offsetElement = document.createElement('div');
-                offsetElement.style.cssText = `
-                    position: absolute;
-                    top: ${target.offsetTop - navbarHeight - 20}px;
-                    left: 0;
-                    width: 1px;
-                    height: 1px;
-                    pointer-events: none;
-                    opacity: 0;
-                `;
-                document.body.appendChild(offsetElement);
-                
-                // Scroll to the offset element instead
-                offsetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start',
-                    inline: 'nearest'
+                // Use modern scrollTo with smooth behavior for better compatibility
+                window.scrollTo({
+                    top: Math.max(0, targetTop),
+                    behavior: 'smooth'
                 });
-                
-                // Remove the temporary element after scrolling
-                setTimeout(() => {
-                    if (offsetElement.parentNode) {
-                        offsetElement.parentNode.removeChild(offsetElement);
-                    }
-                }, 1000);
             }
         }
     });
